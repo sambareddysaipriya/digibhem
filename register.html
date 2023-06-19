@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+    *{
+        margin:0;
+        padding:0;
+        font-family:arial;
+    }
+section{
+  display:flex;
+  width:100%;
+  height:1800px;
+  align-items:center;
+  justify-content:center;
+  background-image: url('https://whateveryourdose.com/wp-content/uploads/2023/02/Best-hotels-opening-in-London-2023-.003.jpeg');
+  background-size:cover;
+  position:relative;
+}
+section .div1{
+    border:5px solid rgba(255, 228, 196, 0.500);
+    width:800px;
+    height:1600px;
+    padding:25px;
+    border-radius:10px;
+    font-size:30px;
+    background-color:rgba(255, 228, 196, 0.500);
+    box-shadow: 0 0 20px black;
+}
+form{
+    align-content: center;
+    justify-content: center;
+    margin-top:10px;
+    width:800px;
+    height:1600px;
+}
+input{
+    margin-left:5px;
+    height:35px;
+    width:775px;
+    font-size:27px;
+    BORDER-RADIUS:5PX;
+    background-color: white;
+    margin-bottom:15px;
+}
+.lbutton:active{
+    opacity:0.7;
+}
+p{
+    display:inline;
+}
+label{
+    font-family:Roboto;
+    font-size:35px;
+}
+</style>
+<script>
+                function roomcost(){
+                    var tday=parseInt(document.getElementById("tnod").value);
+                    var rt=parseInt(document.getElementById("rtype").value); 
+                    document.getElementById("trcost").value=tday*rt;
+                }
+                function amenitiescost(){
+                    var tday=parseInt(document.getElementById("tnod").value);
+                    var amen=parseInt(document.getElementById("amenities").value);
+                    document.getElementById("tacost").value=tday*amen;
+                }  
+                function additioncost(){
+                    if(parseInt(document.getElementById("tnop").value)<=2){
+                    document.getElementById("addcost").value=0;}
+                    else{
+                        var sp=parseInt(document.getElementById("tnop").value);
+                        var sd=parseInt(document.getElementById("tnod").value);
+                        document.getElementById("addcost").value=(sp-2)*1000*sd;
+                    }
+                } 
+                function totalcost(){
+                    var trc=parseInt(document.getElementById("trcost").value);
+                    var tac=parseInt(document.getElementById("tacost").value);
+                    var tad=parseInt(document.getElementById("addcost").value);
+                    document.getElementById("tcost").value=trc+tac+tad;
+                }
+                function balancecost(){
+                    var total=parseInt(document.getElementById("tcost").value);
+                    var addition=parseInt(document.getElementById("aamount").value);
+                    document.getElementById("balance").value=total-addition;
+                }
+                function main(){
+                    roomcost();
+                    amenitiescost();
+                    additioncost();
+                    totalcost();
+                    balancecost();
+                }
+</script>
+</head>
+<body>
+    <section>
+        <div class="div1">
+            <form action="home.html">
+                <h1 style="font-family:Roboto;text-align:center;width:800px;margin-bottom:15px;"><i style="font-family:Roboto;">***REGISTRATION FORM***</i></h1>
+                <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;">***CUSTOMER INFORMATION***</h3>
+               <label for="fname" >First Name:<p style="color:red;font-size:30px;">*</p>
+               <input type="text" placeholder=" Enter Your First Name" id="fname" required>
+            </label>
+               <label for="lname" >Last Name:<p style="color:red;font-size:30px;">*</p>
+                <input type="text" placeholder=" Enter Your Last Name" id="lname" required>
+            </label>
+               <label for="cindate">Check-in Date:<p style="color:red;font-size:30px;">*</p>
+               <input type="date" placeholder=" Enter Date" id="cindate" required>
+            </label>
+               <label for="tnod">Total Number Of Days:<p style="color:red;font-size:30px;">*</p>
+               <input type="number" placeholder=" Enter Total Number Of Days" id="tnod" required>
+            </label>
+               <label for="tnop">Total Number Of Persons:<p style="color:red;font-size:30px;">*</p>
+               <input type="number" placeholder=" Enter Total Number Of Persons" id="tnop" required>
+            </label>
+               <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***ROOM INFORMATION***</h3>
+               <label for="rtype">Room Type:</label>
+            <select id="rtype" style="background-color:white;height:30px;width:250px;font-size:25px;margin-bottom: 15px;">
+                <option value="0">Select</option>
+                <option value="2500">Delux Room(2500/-)</option>
+                <option value="4000">Suite Room(4000/-)</option>
+            </select><br>
+            <label for="amenities">Amenities:</label>
+            <select id="amenities" style="background-color:white;height:30px;width:230px;font-size:25px;margin-bottom: 15px;">
+                <option value="'0">Select</option>
+                <option value="1000">AC(1000/-)</option>
+                <option value="300">Locker(300/-)</option>
+                <option value="1300">Both(1300/-)</option>
+            </select>
+            <h4 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***PLEASE PAY ADVANCE AMOUNT***</h4>
+            <label for="aamount">Advance Payment:<p style="color:red;font-size:30px;">*</p>
+            <input type="number" placeholder=" Advance Amount" id="aamount" required onkeyup="main()">
+        </label>
+            <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***TOTAL COST***</h3>
+            <label for="trcost">Total Room Cost:
+            <input type="number"placeholder=" Total Room Cost" id="trcost" readonly>
+        </label>
+            <label for="tacost">Total Amenities Cost:
+            <input type="number"placeholder=" Total Amenities Cost" id="tacost" readonly>
+        </label>
+            <label for="addcost">Additional Cost:
+            <input type="number"placeholder=" Additional Cost" id="addcost" readonly>
+        </label>
+            <label for="tcost">Total Cost:
+            <input type="number"placeholder=" Total Cost" id="tcost" readonly></label>
+            <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***BALANCE AMOUNT***</h3>
+            <label for="balance">Balance Amount:
+            <input type="number"placeholder=" Balance Amount" id="balance" readonly>
+        </label>
+            <label style="font-size:30px;display:inline-block;"><input type="checkbox" style="margin-left:0px;display:inline-block;margin-bottom: 0px;width:30px;">&nbsp&nbspCustomer should follow all rules and regulations
+            </label>
+            <label>
+                <input type="submit" value="REGISTER" style="background-color: rgb(216, 82, 82);width:250px;border-radius:5px;height:62px;font-size:30px;margin-left:275px;margin-top:20px;">
+            </label>
+            </form>
+        </div>
+        
+    </section>
+</body>
+</html>
