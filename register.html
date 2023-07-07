@@ -2,50 +2,12 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
-<script>
-                function roomcost(){
-                    var tday=parseInt(document.getElementById("tnod").value);
-                    var rt=parseInt(document.getElementById("rtype").value); 
-                    document.getElementById("trcost").value=tday*rt;
-                }
-                function amenitiescost(){
-                    var tday=parseInt(document.getElementById("tnod").value);
-                    var amen=parseInt(document.getElementById("amenities").value);
-                    document.getElementById("tacost").value=tday*amen;
-                }  
-                function additioncost(){
-                    if(parseInt(document.getElementById("tnop").value)<=2){
-                    document.getElementById("addcost").value=0;}
-                    else{
-                        var sp=parseInt(document.getElementById("tnop").value);
-                        var sd=parseInt(document.getElementById("tnod").value);
-                        document.getElementById("addcost").value=(sp-2)*1000*sd;
-                    }
-                } 
-                function totalcost(){
-                    var trc=parseInt(document.getElementById("trcost").value);
-                    var tac=parseInt(document.getElementById("tacost").value);
-                    var tad=parseInt(document.getElementById("addcost").value);
-                    document.getElementById("tcost").value=trc+tac+tad;
-                }
-                function balancecost(){
-                    var total=parseInt(document.getElementById("tcost").value);
-                    var addition=parseInt(document.getElementById("aamount").value);
-                    document.getElementById("balance").value=total-addition;
-                }
-                function main(){
-                    roomcost();
-                    amenitiescost();
-                    additioncost();
-                    totalcost();
-                    balancecost();
-                }
-</script>
+    <script src="register1.js"></script>
 </head>
 <body>
     <section>
         <div class="div1">
-            <form action="thankyou.html">
+            <form>
                 <h1 style="font-family:Roboto;text-align:center;width:800px;margin-bottom:15px;"><i style="font-family:Roboto;">***REGISTRATION FORM***</i></h1>
                 <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;">***CUSTOMER INFORMATION***</h3>
                <label for="fname" >First Name:<p style="color:red;font-size:30px;">*</p>
@@ -79,9 +41,10 @@
             </select>
             <h4 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***PLEASE PAY ADVANCE AMOUNT***</h4>
             <label for="aamount">Advance Payment:<p style="color:red;font-size:30px;">*</p>
-            <input type="number" placeholder=" Advance Amount" id="aamount" required onkeyup="main()">
+            <input type="number" placeholder=" Advance Amount" id="aamount" required >
         </label>
-            <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;">***TOTAL COST***</h3>
+        <button style="background-color: rgb(226, 41, 41);width:400px;border-radius:5px;height:60px;font-size:30px;margin-left:200px;;margin-top:10px;" onclick="main()" >Calculate</button>
+            <h3 style="font-family:Roboto;font-size:30px;text-align:center;width:800px;height:50px;margin-top:15px;">***TOTAL COST***</h3>
             <label for="trcost">Total Room Cost:
             <input type="number"placeholder=" Total Room Cost" id="trcost" readonly>
         </label>
@@ -89,7 +52,7 @@
             <input type="number"placeholder=" Total Amenities Cost" id="tacost" readonly>
         </label>
             <label for="addcost">Additional Cost:
-                    <h3  style="font-size:30px;font-family:Roboto;"><p style="color:red;font-size:39px;">*</p>IF PERSONS EXCEEDS 2,THEN PER DAY COST FOR EXTRA PERSON:1000/-<p style="color:red;font-size:39px;">*</p></h3>
+                <h3  style="font-size:30px;font-family:Roboto;"><p style="color:red;font-size:39px;">*</p>IF PERSONS EXCEEDS 2,THEN PER DAY COST FOR EXTRA PERSON:1000/-<p style="color:red;font-size:39px;">*</p></h3>
             <input type="number"placeholder=" Additional Cost" id="addcost" readonly>
         </label>
             <label for="tcost">Total Cost:
@@ -98,11 +61,10 @@
             <label for="balance">Balance Amount:
             <input type="number"placeholder=" Balance Amount" id="balance" readonly>
         </label>
+        
             <label style="font-size:30px;display:inline-block;"><input type="checkbox" style="margin-left:0px;display:inline-block;margin-bottom: 0px;width:30px;">&nbsp&nbspCustomer should follow all rules and regulations
             </label>
-            <label>
-                <input type="submit" value="REGISTER" style="background-color: rgb(216, 82, 82);width:250px;border-radius:5px;height:62px;font-size:30px;margin-left:275px;margin-top:20px;">
-            </label>
+            <button style="background-color: rgb(231, 62, 62);width:250px;border-radius:5px;height:62px;font-size:30px;margin-left:275px;margin-top:20px;"><a href="thankyou.html" style="color:black;">REGISTER</a></button>
             </form>
         </div>
         
